@@ -1,0 +1,216 @@
+CSS503
+Assignment 2
+Elaine Xu
+
+
+Assignment 2 simulates a barber shop which has multiple barber threads and
+multiple customer threads running at the same time utilizing pthreads.
+
+I placed my print statements outside of the mutex lock, thus they appear to be
+interleaved and out of sync sometimes. Placing the print statements out of the
+lock appears to have higher performace on the system (shorter time in critical
+section).
+
+I ran the simulation for 5 minutes with average service time of 1200
+milliseconds and standard deviation of 200ms. Assuming there are 3 barbers and
+customers arrive on average every 400ms, to determine approximately how many
+waiting-room chairs are required to avoid turning away customers.
+
+My run outputs from the various wait-chairs runs are shown below. When running
+with 1 or 2 waiting-chairs, the number of customers turned away is quite large
+(10+). Then the average number of turning customers decreases as the number of
+chair is added. When running with 3 waiting-chairs, average of 7 customers were
+turned away, 6 customers for 4 chairs and so on. Until when running with 7
+wait-chairs, there were no customers turned away. I recommond using 7 chairs to
+avoid any turning customers.
+
+===================================================================
+NCHAIRS=1
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+customers served immediately: 310
+customers waited: 396
+total customers served: 706
+customers turned away: 45
+total customers: 751
+
+
+===================================================================
+NCHAIRS=2
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+-------------------------------
+customers served immediately: 95
+customers waited: 642
+total customers served: 737
+customers turned away: 12
+total customers: 749
+
+customers served immediately: 99
+customers waited: 643
+total customers served: 742
+customers turned away: 9
+total customers: 751
+
+customers served immediately: 69
+customers waited: 667
+total customers served: 736
+customers turned away: 16
+total customers: 752
+
+
+===================================================================
+NCHAIRS=3
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+run 1:
+customers served immediately: 56
+customers waited: 690
+total customers served: 746
+customers turned away: 5
+total customers: 751
+
+run 2:
+customers served immediately: 24
+customers waited: 719
+total customers served: 743
+customers turned away: 10
+total customers: 753
+
+run 3:
+customers served immediately: 31
+customers waited: 713
+total customers served: 744
+customers turned away: 6
+total customers: 750
+
+
+===================================================================
+NCHAIRS=4
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+run 1:
+customer customers served immediately: 40
+customers waited: 706
+total customers served: 746
+customers turned away: 5
+total customers: 751
+
+run 2:
+customers served immediately: 24
+customers waited: 721
+total customers served: 745
+customers turned away: 7
+total customers: 752
+
+run 3:
+customers served immediately: 12
+customers waited: 732
+2total customers served: 744
+customers turned away: 4
+total customers: 748
+
+
+===================================================================
+NCHAIRS=5
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+run 1:
+customers served immediately: 13
+customers waited: 733
+total customers served: 746
+customers turned away: 8
+total customers: 754
+
+run 2:
+customers served immediately: 12
+customers waited: 733
+total customers served: 745
+customers turned away: 6
+total customers: 751
+
+run 3:
+customers served immediately: 11
+customers waited: 738
+total customers served: 749
+customers turned away: 2
+total customers: 751
+
+
+===================================================================
+NCHAIRS=6
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+run 1:
+customers served immediately: 41
+customers waited: 710
+total customers served: 751
+customers turned away: 0
+total customers: 751
+
+run 2:
+customers served immediately: 17
+customers waited: 729
+total customers served: 746
+customers turned away: 3
+total customers: 749
+
+run 3:
+customers served immediately: 20
+customers waited: 729
+total customers served: 749
+customers turned away: 2
+total customers: 751
+
+
+===================================================================
+NCHAIRS=7
+NBARBERS=3
+SERVICE_TIME=1200
+SERVICE_DEVIATION=200
+CUSTOMER_ARRIVALS=400
+DURATION_SECONDS=300
+------------------------------
+run 1:
+customers served immediately: 64
+customers waited: 684
+total customers served: 748
+customers turned away: 0
+total customers: 748
+
+run 2:
+customers served immediately: 63
+customers waited: 683
+total customers served: 746
+customers turned away: 0
+total customers: 746
+
+run 3:
+customers served immediately: 41
+customers waited: 708
+total customers served: 749
+customers turned away: 0
+total customers: 749
