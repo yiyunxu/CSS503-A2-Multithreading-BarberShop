@@ -3,8 +3,8 @@
 //
 // Simulate the sleeping barbers problem.
 //
-// Author: Morris Bernstein
-// Copyright 2019, Systems Deployment, LLC.
+// Author: Elaine Xu
+
 
 
 #include <algorithm>
